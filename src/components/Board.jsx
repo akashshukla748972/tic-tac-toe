@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "./Item";
 import WinnerPopup from "./WinnerPopup";
+import swal from "sweetalert";
 
 const Board = () => {
   const [state, setState] = useState(Array(9).fill(null));
@@ -41,6 +42,11 @@ const Board = () => {
     setState(copyState);
     setIsXTern(!isXTern);
   };
+
+  useEffect(() => {
+    swal("Welcom to our site, now you can play tic-tac-toe game");
+  }, []);
+
   return (
     <div className="w-full h-[80vh]  bg-white flex justify-center items-center">
       {isWinner ? (
